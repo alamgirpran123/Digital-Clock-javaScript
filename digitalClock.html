@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <title>Digital Clock</title>
+
+  <style>
+    body{
+      
+      background-color: #000;
+    }
+#clock{
+  font-family: 'Orbitron', sans-serif;
+  color: chartreuse;
+  font-size: 40px;
+  border: 30px solid coral;
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
+  background-color: rgb(3, 46, 48);
+  border-radius: 30px;
+  
+}
+
+.header_text{
+  font-family: 'Orbitron', sans-serif;
+  color:rgb(0, 140, 255);
+  text-align: center;
+  font-size: 100px;
+}
+
+.footer_text{
+  font-family: 'Dancing Script', cursive;
+  color:#fff;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 80px;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <h1 class="header_text">
+    Digital Clock
+  </h1>
+  <div id="clock">
+
+    <h1 id="display"></h1>
+    
+  </div>
+  <h1 class="footer_text">
+    Design By Alamgir
+  </h1>
+
+  <script>
+    function digitalClock() {
+      var date = new Date();
+      var hour = date.getHours();
+      var minute = date.getMinutes();
+      var second = date.getSeconds();
+      var timeFormat = 'AM';
+
+
+
+      if (hour === 0) {
+        hour = 12;
+      }
+
+      if (hour > 12) {
+        hour = hour - 12;
+      }
+
+      if (hour < 10) {
+        hour = '0' + hour;
+      }
+
+      if (minute < 10) {
+        minute = '0' + minute;
+      }
+
+      if (second < 10) {
+        second = '0' + second;
+      }
+
+      if(hour < 12){
+        timeFormat = 'PM';
+      }
+
+      var time = hour + " : " + minute + " : " + second + " " + timeFormat;
+
+      document.getElementById("display").innerText = time;
+
+
+    }
+
+    setInterval(digitalClock, 1000);
+  </script>
+</body>
+
+</html>
